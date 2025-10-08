@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diagnostic Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(165deg, #1a4d2e 0%, #2d5a3d 40%, #4f7942 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated grass field */
+    .grass-field {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(to top, #1a4d2e 0%, transparent 100%);
+    }
+
+    .grass-blade {
+      position: absolute;
+      bottom: 0;
+      width: 6px;
+      background: linear-gradient(to top, #2d5a3d, #4f7942, #81c784);
+      border-radius: 50% 50% 0 0;
+      transform-origin: bottom center;
+      animation: grass-sway 4s ease-in-out infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes grass-sway {
+      0%, 100% { transform: rotate(-3deg) scaleY(1); }
+      25% { transform: rotate(2deg) scaleY(1.05); }
+      50% { transform: rotate(3deg) scaleY(1); }
+      75% { transform: rotate(-2deg) scaleY(0.98); }
+    }
+
+    .grass-blade:nth-child(1) { left: 3%; height: 90px; animation-delay: 0s; }
+    .grass-blade:nth-child(2) { left: 12%; height: 75px; animation-delay: 0.4s; }
+    .grass-blade:nth-child(3) { left: 21%; height: 85px; animation-delay: 0.8s; }
+    .grass-blade:nth-child(4) { left: 30%; height: 95px; animation-delay: 0.2s; }
+    .grass-blade:nth-child(5) { left: 39%; height: 80px; animation-delay: 0.6s; }
+    .grass-blade:nth-child(6) { left: 48%; height: 88px; animation-delay: 1s; }
+    .grass-blade:nth-child(7) { left: 57%; height: 92px; animation-delay: 0.3s; }
+    .grass-blade:nth-child(8) { left: 66%; height: 78px; animation-delay: 0.7s; }
+    .grass-blade:nth-child(9) { left: 75%; height: 86px; animation-delay: 0.5s; }
+    .grass-blade:nth-child(10) { left: 84%; height: 94px; animation-delay: 0.9s; }
+    .grass-blade:nth-child(11) { left: 93%; height: 82px; animation-delay: 0.1s; }
+
+    /* Floating botanical elements */
+    .botanical {
+      position: absolute;
+      font-size: 2.5em;
+      opacity: 0.2;
+      animation: drift 25s infinite ease-in-out;
+    }
+
+    @keyframes drift {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.2;
+      }
+      25% {
+        transform: translate(80px, -80px) rotate(90deg);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translate(150px, -30px) rotate(180deg);
+        opacity: 0.2;
+      }
+      75% {
+        transform: translate(50px, 50px) rotate(270deg);
+        opacity: 0.25;
+      }
+    }
+
+    .botanical:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+    .botanical:nth-child(2) { top: 25%; right: 12%; animation-delay: 8s; }
+    .botanical:nth-child(3) { top: 65%; left: 15%; animation-delay: 16s; }
+
+    .result-container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      animation: reveal 1s ease-out;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .result-card {
+      background: rgba(244, 241, 222, 0.97);
+      backdrop-filter: blur(15px);
+      padding: 70px 90px;
+      border-radius: 25px;
+      box-shadow: 0 35px 90px rgba(0,0,0,0.5);
+      border: 3px solid rgba(227, 213, 202, 0.4);
+      min-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .result-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(129, 199, 132, 0.1) 0%, transparent 70%);
+      animation: shimmer 8s linear infinite;
+    }
+
+    @keyframes shimmer {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .badge-container {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .success-badge {
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2d5a3d, #4f7942);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4em;
+      box-shadow: 0 20px 50px rgba(45, 90, 61, 0.4);
+      animation: badge-pop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      position: relative;
+    }
+
+    @keyframes badge-pop {
+      0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    .success-badge::after {
+      content: '';
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border: 3px solid rgba(45, 90, 61, 0.3);
+      border-radius: 50%;
+      animation: pulse-ring 2s ease-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.3);
+        opacity: 0;
+      }
+    }
+
+    .status-text {
+      color: #2d5a3d;
+      font-size: 1em;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+
+    .divider {
+      width: 150px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #2d5a3d, transparent);
+      margin: 25px auto;
+      position: relative;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '◆';
+      position: absolute;
+      color: #2d5a3d;
+      font-size: 0.7em;
+      top: -7px;
+    }
+
+    .divider::before { left: -5px; }
+    .divider::after { right: -5px; }
+
+    .result-label {
+      font-family: 'Playfair Display', serif;
+      color: #2d5a3d;
+      font-size: 1.5em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .prediction-display {
+      background: linear-gradient(135deg, #2d5a3d 0%, #4f7942 100%);
+      color: #f4f1de;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8em;
+      font-weight: 700;
+      padding: 30px 40px;
+      border-radius: 15px;
+      margin: 25px 0;
+      box-shadow: 0 15px 40px rgba(45, 90, 61, 0.3);
+      animation: glow-pulse 3s ease-in-out infinite alternate;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes glow-pulse {
+      from {
+        box-shadow: 0 15px 40px rgba(45, 90, 61, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.1);
+      }
+      to {
+        box-shadow: 0 15px 40px rgba(45, 90, 61, 0.5), inset 0 0 50px rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .prediction-display::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: slide-shine 3s infinite;
+    }
+
+    @keyframes slide-shine {
+      0% { left: -100%; }
+      50%, 100% { left: 100%; }
+    }
+
+    .confidence-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(45, 90, 61, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .confidence-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2d5a3d, #4f7942, #81c784);
+      border-radius: 10px;
+      width: 95%;
+      animation: fill-bar 1.5s ease-out 0.5s both;
+    }
+
+    @keyframes fill-bar {
+      from { width: 0; }
+      to { width: 95%; }
+    }
+
+    .action-button {
+      display: inline-block;
+      padding: 22px 55px;
+      background: linear-gradient(135deg, #2d5a3d 0%, #4f7942 100%);
+      color: #f4f1de;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.15em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 15px 40px rgba(45, 90, 61, 0.4);
+      margin-top: 30px;
+      position: relative;
+      overflow: hidden;
+      animation: slide-up 0.8s ease-out 0.6s both;
+    }
+
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .action-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .action-button:hover::before {
+      width: 350px;
+      height: 350px;
+    }
+
+    .action-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(45, 90, 61, 0.6);
+    }
+
+    .action-button:active {
+      transform: translateY(-3px);
+    }
+
+    .btn-icon {
+      font-size: 1.3em;
+      margin-right: 12px;
+    }
+
+    /* Decorative botanical corners */
+    .corner-deco {
+      position: absolute;
+      font-size: 4em;
+      opacity: 0.08;
+      animation: gentle-rotate 40s linear infinite;
+    }
+
+    @keyframes gentle-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .corner-deco-1 { top: -20px; left: -20px; }
+    .corner-deco-2 { bottom: -20px; right: -20px; animation-direction: reverse; }
+
+    .stamp {
+      display: inline-block;
+      border: 3px solid rgba(45, 90, 61, 0.5);
+      border-radius: 10px;
+      padding: 8px 20px;
+      color: #2d5a3d;
+      font-size: 0.85em;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 15px;
+      transform: rotate(-2deg);
+      animation: stamp-appear 0.5s ease-out 0.8s both;
+    }
+
+    @keyframes stamp-appear {
+      from {
+        opacity: 0;
+        transform: rotate(-2deg) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: rotate(-2deg) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating botanical elements -->
+  <div class="botanical">🌿</div>
+  <div class="botanical">🍃</div>
+  <div class="botanical">🌾</div>
+
+  <!-- Animated grass field -->
+  <div class="grass-field">
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+  </div>
+
+  <div class="result-container">
+    <div class="result-card">
+      <div class="corner-deco corner-deco-1">🌿</div>
+      <div class="corner-deco corner-deco-2">🍃</div>
+
+      <div class="badge-container">
+        <div class="success-badge">✓</div>
+      </div>
+
+      <div class="status-text">Diagnosis Complete</div>
+
+      <div class="divider"></div>
+
+      <div class="result-label">Detected Condition</div>
+
+      <div class="prediction-display">
+        {{ prediction }}
+      </div>
+
+      <div class="confidence-bar">
+        <div class="confidence-fill"></div>
+      </div>
+
+      <div class="stamp">✓ Verified Result</div>
+
+      <a href="/" class="action-button">
+        <span class="btn-icon">🔄</span>
+        <span>New Analysis</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

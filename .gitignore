@@ -18,6 +18,29 @@ data/
 *.npy
 *.json
 
+# Ignore dataset folders
+dataset/
+datasets/
+data/
+images/
+train/
+test/
+val/
+validation/
+__pycache__/
+
+# Ignore common dataset file types
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+*.tif
+*.gif
+*.webp
+*.svg
+*.zip
+*.rar
 
 # Distribution / packaging
 .Python
