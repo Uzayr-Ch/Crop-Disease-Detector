@@ -6,6 +6,19 @@ __pycache__/
 # C extensions
 *.so
 
+# Ignore dataset folders and files
+dataset/
+data/
+*.csv
+*.xlsx
+*.zip
+*.h5
+*.pkl
+*.npz
+*.npy
+*.json
+
+
 # Distribution / packaging
 .Python
 build/
