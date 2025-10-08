@@ -36,7 +36,7 @@ __pycache__/
 *.pth
 *.weights
 *.ckpt
-
+*.tflite
 
 # Ignore common dataset file types
 *.jpg
