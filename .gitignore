@@ -29,6 +29,15 @@ val/
 validation/
 __pycache__/
 
+
+*.tflite
+*.h5
+*.pt
+*.pth
+*.weights
+*.ckpt
+
+
 # Ignore common dataset file types
 *.jpg
 *.jpeg
