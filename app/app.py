@@ -24,7 +24,6 @@ class_names = [
 def preprocess_image(image):
     input_shape = input_details[0]['shape']
     height, width = input_shape[1], input_shape[2]
-
     image = image.resize((width, height))
     image = np.array(image, dtype=np.float32)
 
@@ -56,7 +55,6 @@ def predict():
     interpreter.invoke()
     output_data = interpreter.get_tensor(output_details[0]['index'])
     predicted_class = np.argmax(output_data)
-
     predicted_name = class_names[predicted_class]  # Map index to name
 
     return render_template('result.html', prediction=predicted_name)
