@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>AgriGuard - Plant Disease Detector</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>GreenVision - Plant Disease Detector</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -53,20 +56,76 @@
     }
 
     @keyframes sway {
-      0%, 100% { transform: rotate(-2deg); }
-      50% { transform: rotate(2deg); }
+
+      0%,
+      100% {
+        transform: rotate(-2deg);
+      }
+
+      50% {
+        transform: rotate(2deg);
+      }
     }
 
-    .grass:nth-child(1) { left: 5%; height: 80px; animation-delay: 0s; }
-    .grass:nth-child(2) { left: 15%; height: 100px; animation-delay: 0.3s; }
-    .grass:nth-child(3) { left: 25%; height: 90px; animation-delay: 0.6s; }
-    .grass:nth-child(4) { left: 35%; height: 110px; animation-delay: 0.2s; }
-    .grass:nth-child(5) { left: 45%; height: 85px; animation-delay: 0.8s; }
-    .grass:nth-child(6) { left: 55%; height: 95px; animation-delay: 0.4s; }
-    .grass:nth-child(7) { left: 65%; height: 105px; animation-delay: 0.7s; }
-    .grass:nth-child(8) { left: 75%; height: 88px; animation-delay: 0.1s; }
-    .grass:nth-child(9) { left: 85%; height: 92px; animation-delay: 0.5s; }
-    .grass:nth-child(10) { left: 95%; height: 98px; animation-delay: 0.9s; }
+    .grass:nth-child(1) {
+      left: 5%;
+      height: 80px;
+      animation-delay: 0s;
+    }
+
+    .grass:nth-child(2) {
+      left: 15%;
+      height: 100px;
+      animation-delay: 0.3s;
+    }
+
+    .grass:nth-child(3) {
+      left: 25%;
+      height: 90px;
+      animation-delay: 0.6s;
+    }
+
+    .grass:nth-child(4) {
+      left: 35%;
+      height: 110px;
+      animation-delay: 0.2s;
+    }
+
+    .grass:nth-child(5) {
+      left: 45%;
+      height: 85px;
+      animation-delay: 0.8s;
+    }
+
+    .grass:nth-child(6) {
+      left: 55%;
+      height: 95px;
+      animation-delay: 0.4s;
+    }
+
+    .grass:nth-child(7) {
+      left: 65%;
+      height: 105px;
+      animation-delay: 0.7s;
+    }
+
+    .grass:nth-child(8) {
+      left: 75%;
+      height: 88px;
+      animation-delay: 0.1s;
+    }
+
+    .grass:nth-child(9) {
+      left: 85%;
+      height: 92px;
+      animation-delay: 0.5s;
+    }
+
+    .grass:nth-child(10) {
+      left: 95%;
+      height: 98px;
+      animation-delay: 0.9s;
+    }
 
     /* Floating leaves */
     .leaf-float {
@@ -79,15 +138,42 @@
     }
 
     @keyframes float-leaf {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      25% { transform: translate(100px, -100px) rotate(90deg); }
-      50% { transform: translate(200px, 0px) rotate(180deg); }
-      75% { transform: translate(100px, 100px) rotate(270deg); }
+
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      25% {
+        transform: translate(100px, -100px) rotate(90deg);
+      }
+
+      50% {
+        transform: translate(200px, 0px) rotate(180deg);
+      }
+
+      75% {
+        transform: translate(100px, 100px) rotate(270deg);
+      }
     }
 
-    .leaf-float:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-    .leaf-float:nth-child(2) { top: 20%; right: 15%; animation-delay: 5s; }
-    .leaf-float:nth-child(3) { top: 60%; left: 20%; animation-delay: 10s; }
+    .leaf-float:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .leaf-float:nth-child(2) {
+      top: 20%;
+      right: 15%;
+      animation-delay: 5s;
+    }
+
+    .leaf-float:nth-child(3) {
+      top: 60%;
+      left: 20%;
+      animation-delay: 10s;
+    }
 
     /* Hero Section */
     #hero {
@@ -104,6 +190,7 @@
         opacity: 0;
         transform: translateY(40px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -114,12 +201,19 @@
       font-size: 6em;
       margin-bottom: 20px;
       animation: gentle-bounce 3s ease-in-out infinite;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
     }
 
     @keyframes gentle-bounce {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
     }
 
     .hero-title {
@@ -128,12 +222,12 @@
       font-size: 5em;
       font-weight: 700;
       margin-bottom: 20px;
-      text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+      text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
       letter-spacing: 2px;
     }
 
     .hero-subtitle {
-      color: #e3d5ca;
+      color: #e2ce5dfa;
       font-size: 1.5em;
       font-weight: 400;
       letter-spacing: 3px;
@@ -159,8 +253,13 @@
       top: -8px;
     }
 
-    .ornament::before { left: -10px; }
-    .ornament::after { right: -10px; }
+    .ornament::before {
+      left: -10px;
+    }
+
+    .ornament::after {
+      right: -10px;
+    }
 
     .scroll-indicator {
       margin-top: 50px;
@@ -168,8 +267,15 @@
     }
 
     @keyframes bounce-arrow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(15px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(15px);
+      }
     }
 
     .scroll-arrow {
@@ -202,15 +308,15 @@
       font-size: 3em;
       font-weight: 700;
       margin-bottom: 20px;
-      text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+      text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
     }
 
     .about-card {
-      background: rgba(244, 241, 222, 0.95);
+      background: rgba(253, 248, 213, 0.95);
       backdrop-filter: blur(10px);
       padding: 35px 40px;
       border-radius: 20px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
       border: 3px solid rgba(227, 213, 202, 0.3);
       margin-top: 20px;
     }
@@ -248,14 +354,14 @@
     }
 
     .feature-title {
-      color: #2d5a3d;
+      color: #085021;
       font-size: 1.15em;
       font-weight: 600;
       margin-bottom: 8px;
     }
 
     .feature-desc {
-      color: #4f7942;
+      color: #3a7428;
       font-size: 0.95em;
     }
 
@@ -274,25 +380,25 @@
     }
 
     .team-card {
-      background: rgba(244, 241, 222, 0.95);
+      background: rgba(253, 248, 213, 0.95);
       backdrop-filter: blur(10px);
       padding: 35px 30px;
       border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      border: 3px solid rgba(227, 213, 202, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      border: 3px solid rgba(41, 40, 39, 0.493);
       text-align: center;
       transition: all 0.4s ease;
     }
 
     .team-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
     }
 
     .team-avatar {
       width: 100px;
       height: 100px;
-      background: linear-gradient(135deg, #2d5a3d, #4f7942);
+      background: linear-gradient(135deg, #01471a, #ffe058);
       border-radius: 50%;
       margin: 0 auto 20px;
       display: flex;
@@ -311,7 +417,7 @@
     }
 
     .team-role {
-      color: #4f7942;
+      color: #9c9a06;
       font-size: 1em;
       font-weight: 500;
       margin-bottom: 12px;
@@ -320,14 +426,14 @@
     }
 
     .team-bio {
-      color: #2d5a3d;
+      color: #3c724f;
       font-size: 0.92em;
       line-height: 1.6;
     }
 
     /* Analysis Section */
     #analysis {
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.349);
     }
 
     .analysis-container {
@@ -337,12 +443,12 @@
     }
 
     .upload-card {
-      background: rgba(244, 241, 222, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(253, 248, 213, 0.95);
+      backdrop-filter: blur(15px);
       padding: 50px 60px;
       border-radius: 20px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-      border: 3px solid rgba(227, 213, 202, 0.3);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      border: 3px solid rgba(63, 61, 60, 0.3);
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
@@ -357,7 +463,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
       transition: left 0.7s;
     }
 
@@ -367,7 +473,7 @@
 
     .upload-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
     }
 
     .upload-icon-area {
@@ -390,7 +496,7 @@
     }
 
     .upload-zone:hover {
-      border-color: #4f7942;
+      border-color: #246108;
       background: rgba(79, 121, 66, 0.1);
       transform: scale(1.02);
     }
@@ -405,8 +511,15 @@
     }
 
     @keyframes float-up-down {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     .upload-text {
@@ -417,7 +530,7 @@
     }
 
     .upload-subtext {
-      color: #4f7942;
+      color: #918e0a;
       font-size: 0.95em;
       opacity: 0.8;
     }
@@ -481,7 +594,7 @@
       width: 0;
       height: 0;
       border-radius: 50%;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
       transform: translate(-50%, -50%);
       transition: width 0.6s, height 0.6s;
     }
@@ -514,14 +627,55 @@
     }
 
     @keyframes rotate-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
-    .deco-leaf-1 { top: -30px; left: -30px; }
-    .deco-leaf-2 { bottom: -30px; right: -30px; }
+    .deco-leaf-1 {
+      top: -30px;
+      left: -30px;
+    }
+
+    .deco-leaf-2 {
+      bottom: -30px;
+      right: -30px;
+    }
+
+    .site-footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 14px;
+      color: #e1e29b;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 40px;
+      background-color: #4f7942;
+    }
+
+    .site-footer a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .dev-watermark {
+      position: fixed;
+      bottom: 1px;
+      left: 5x;
+      font-size: 10px;
+      color: rgba(0, 0, 0, 0.4);
+      font-family: monospace;
+    }
   </style>
 </head>
+
 <body>
   <!-- Floating leaves -->
   <div class="leaf-float">🍃</div>
@@ -546,7 +700,7 @@
   <section id="hero">
     <div class="hero-content">
       <div class="hero-icon">🌾</div>
-      <h1 class="hero-title">AgriGuard</h1>
+      <h1 class="hero-title">GreenVision </h1>
       <div class="ornament"></div>
       <p class="hero-subtitle">Precision Plant Diagnostics</p>
       <div class="scroll-indicator">
@@ -560,13 +714,16 @@
     <div class="section-content">
       <h2 class="section-title">About Our Project</h2>
       <div class="ornament"></div>
-      
+
       <div class="about-card">
         <p class="about-text">
-          AgriGuard is an AI-powered plant disease detection system designed to help farmers and agricultural professionals identify crop diseases quickly and accurately. Using advanced deep learning technology, our system analyzes plant images to detect various diseases across multiple crop types.
+          GreenVision is an AI-powered plant disease detection system designed to help farmers and agricultural
+          professionals identify crop diseases quickly and accurately. Using advanced deep learning technology, our
+          system analyzes plant images to detect various diseases across multiple crop types.
         </p>
         <p class="about-text">
-          Our mission is to empower farmers with cutting-edge technology that enables early disease detection, reduces crop losses, and promotes sustainable agricultural practices.
+          Our mission is to empower farmers with cutting-edge technology that enables early disease detection, reduces
+          crop losses, and promotes sustainable agricultural practices.
         </p>
 
         <div class="features-grid">
@@ -595,34 +752,46 @@
     <div class="section-content">
       <h2 class="section-title">Meet Our Team</h2>
       <div class="ornament"></div>
-      
+
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-avatar">👨‍💻</div>
-          <h3 class="team-name">Team Member 1</h3>
+          <!-- <div class="team-avatar">👨‍💻</div> -->
+          <div class="team-avatar">
+            <img src="Assets/image(1).png" alt="Mansoob-e-Zahra" width="90" height="90" />
+          </div>
+          <h3 class="team-name">Mansoob-e-Zahra</h3>
           <p class="team-role">ML Engineer</p>
-          <p class="team-bio">Specialized in deep learning and computer vision, responsible for model training and optimization.</p>
+          <p class="team-bio">Specialized in deep learning and computer vision, responsible for model training and
+            optimization.</p>
         </div>
 
         <div class="team-card">
-          <div class="team-avatar">👩‍💻</div>
-          <h3 class="team-name">Team Member 2</h3>
-          <p class="team-role">Full Stack Developer</p>
-          <p class="team-bio">Developed the web application and integrated the ML model for seamless user experience.</p>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar">👨‍🔬</div>
-          <h3 class="team-name">Team Member 3</h3>
+          <div class="team-avatar">
+            <img src="Assets/darain.png" alt="S Darain" width="90" height="90" />
+          </div>
+          <h3 class="team-name">Syed Darain Hyder Kazmi</h3>
           <p class="team-role">Data Scientist</p>
           <p class="team-bio">Handled data collection, preprocessing, and model evaluation for accuracy.</p>
         </div>
 
         <div class="team-card">
-          <div class="team-avatar">👩‍🌾</div>
-          <h3 class="team-name">Team Member 4</h3>
-          <p class="team-role">Agricultural Specialist</p>
-          <p class="team-bio">Provided domain expertise on crop diseases and validated model predictions with agricultural knowledge.</p>
+          <div class="team-avatar">
+            <img src="Assets/sami.png" alt="Abdul Sami" width="90" height="90" />
+          </div>
+          <h3 class="team-name">Abdul Sami </h3>
+          <p class="team-role">Android Developer </p>
+          <p class="team-bio"> Developed the web application and integrated the ML model for seamless user experience.
+          </p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="Assets/uzyr.png" alt="Uzyr Warraich" width="90" height="90" />
+          </div>
+          <h3 class="team-name">Uzyr Warraich</h3>
+          <p class="team-role">Data Analyst</p>
+          <p class="team-bio">Provided domain expertise on crop diseases and validated model predictions with data
+            analysis knowledge.</p>
         </div>
       </div>
     </div>
@@ -663,7 +832,7 @@
     const fileName = document.getElementById('fileName');
     const uploadZone = document.querySelector('.upload-zone');
 
-    fileInput.addEventListener('change', function(e) {
+    fileInput.addEventListener('change', function (e) {
       if (e.target.files.length > 0) {
         fileName.innerHTML = '✓ ' + e.target.files[0].name;
         fileName.classList.add('show');
@@ -672,10 +841,18 @@
       }
     });
 
-    document.querySelector('form').addEventListener('submit', function(e) {
+    document.querySelector('form').addEventListener('submit', function (e) {
       const btn = document.querySelector('.submit-btn span:last-child');
       btn.textContent = 'Analyzing...';
     });
   </script>
+  <footer class="site-footer">
+    <p>Made with ❤️ and ☕ | Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT
+        License</a></p>
+  </footer>
+  <div class="dev-watermark">
+    <p>©2025 Mansoob-e-Zahra,Syed Darain,Abdul Sami ,Uzyr[Uraaan Techathon 1.0]</p>
+  </div>
 </body>
+
 </html>
