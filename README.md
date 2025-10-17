@@ -48,7 +48,7 @@ The model was trained on a curated dataset available on Kaggle:
 ---
 
 ## ⚡ Tech Stack
-
+____________________________________________________________
 | Layer          | Technologies Used                       |
 | -------------- | --------------------------------------- |
 | **Frontend**   | HTML, CSS, Flask Templates              |
@@ -56,6 +56,7 @@ The model was trained on a curated dataset available on Kaggle:
 | **Model**      | TensorFlow / Keras (VGG19 Architecture) |
 | **Deployment** | Localhost / Future Cloud Hosting        |
 | **Dataset**    | Custom Kaggle Dataset                   |
+|__________________________________________________________|
 
 ---
 
